@@ -9,25 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var num1: UITextField!
-    @IBOutlet weak var num2: UITextField!
+    @IBOutlet private weak var num1: UITextField!
+    @IBOutlet private weak var num2: UITextField!
     
-    var number1:Double = 0
-    var number2:Double = 0
-    var sumNumber:Double = 0
+    var number1: Double = 0
+    var number2: Double = 0
+    var sumNumber: Double = 0
     
-    var operatorFlag:Int = 0
+    var operatorFlag: Int = 0
     
-    @IBOutlet weak var calculatedNumber: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-    }
-    
+    @IBOutlet private weak var calculatedNumber: UILabel!
+       
     //segmentNumber毎に成立フラッグを割り振る
-    @IBAction func segment(_ sender: UISegmentedControl) {
+    @IBAction private func segment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             operatorFlag = 0
@@ -43,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     //フラッグ毎に計算内容を変更する
-    @IBAction func calculateButton(_ sender: UIButton) {
+    @IBAction private func calculateButton(_ sender: UIButton) {
         number1 = Double(String(num1.text ?? "")) ?? 0
         number2 = Double(String(num2.text ?? "")) ?? 0
         

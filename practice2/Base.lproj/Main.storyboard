@@ -65,6 +65,7 @@
                         <outlet property="calculatedNumber" destination="hDm-k3-7rm" id="2cR-Eg-gDQ"/>
                         <outlet property="num1" destination="UG0-Bt-kIj" id="hWy-Wq-Hah"/>
                         <outlet property="num2" destination="Whk-UJ-aMI" id="vlD-3t-ujp"/>
+                        <outlet property="segmentedControl" destination="boC-iG-hoA" id="Y71-Wq-H1Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

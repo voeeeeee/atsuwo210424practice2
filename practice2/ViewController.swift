@@ -11,57 +11,35 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var num1: UITextField!
     @IBOutlet private weak var num2: UITextField!
-    
-    var number1: Double = 0
-    var number2: Double = 0
-    var sumNumber: Double = 0
-    
-    var operatorFlag: Int = 0
-    
+
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
+
     @IBOutlet private weak var calculatedNumber: UILabel!
        
-    //segmentNumber毎に成立フラッグを割り振る
-    @IBAction private func segment(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            operatorFlag = 0
-        case 1:
-            operatorFlag = 1
-        case 2:
-            operatorFlag = 2
-        case 3:
-            operatorFlag = 3
-        default:
-            break
-        }
-    }
-    
     //フラッグ毎に計算内容を変更する
     @IBAction private func calculateButton(_ sender: UIButton) {
-        number1 = Double(String(num1.text ?? "")) ?? 0
-        number2 = Double(String(num2.text ?? "")) ?? 0
+        let number1 = Double(String(num1.text ?? "")) ?? 0
+        let number2 = Double(String(num2.text ?? "")) ?? 0
+
+        let calculatedNumberText: String
         
-        switch operatorFlag {
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
-            sumNumber = number1 + number2
-            calculatedNumber.text = String(sumNumber)
+            calculatedNumberText = String(number1 + number2)
         case 1:
-            sumNumber = number1 - number2
-            calculatedNumber.text = String(sumNumber)
+            calculatedNumberText = String(number1 - number2)
         case 2:
-            sumNumber = number1 * number2
-            calculatedNumber.text = String(sumNumber)
+            calculatedNumberText = String(number1 * number2)
         case 3:
-            if number2 != 0{
-                sumNumber = number1 / number2
-                calculatedNumber.text = String(sumNumber)
-                
+            if number2 == 0{
+                calculatedNumberText = "割る数には0以外を入力してください"
             }else{
-                calculatedNumber.text = "割る数には0以外を入力してください"
+                calculatedNumberText = String(number1 / number2)
             }
         default:
-            break
+            return
         }
+
+        calculatedNumber.text = calculatedNumberText
     }
 }
-
